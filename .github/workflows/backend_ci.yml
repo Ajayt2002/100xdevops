@@ -1,4 +1,4 @@
-name: Course_App
+name: Course_App_Backend
 on:
     push:
         branches: [main]
