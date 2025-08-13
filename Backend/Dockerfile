@@ -1,5 +1,5 @@
 FROM oven/bun
-WORKDIR /app
+WORKDIR /usr/src/app
 COPY  package.json package-lock.json tsconfig.json ./
 RUN bun install
 COPY . .

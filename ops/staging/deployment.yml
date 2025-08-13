@@ -1,0 +1,30 @@
+apiVerison: app/v1
+kind: Deployment
+metadata:
+  name: course-app-staging
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app:  course-app-staging
+  template:
+    labels:
+      app:  course-app-staging
+    spec:
+      containers:
+      - name: course-app-staging
+        image:
+        imagePullPolicy:  Always
+        ports:
+        - containerPort:  3000
+        volumeMount:
+        - name: secret
+          mounthPath: ./usr/src/app/.env
+          subPath:  .env
+      volumes:
+      - name: secret
+        secret:
+          secretName: course-app-staging-secret
+          item:
+            - key:  .env
+              path: .env
