@@ -29,3 +29,4 @@ spec:
             items:
               - key: .env
                 path: .env
+hi there
