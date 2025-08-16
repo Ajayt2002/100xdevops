@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress 
+metadata: 
+  name: ingress-nginx
+  annotation:
+    nginx.ingress.kubernets.io/rewrite-target: /
+spec:
+  ingressClassName: nginx 
+  rules:
+  - host: coureseApp.100xdevops.com
+    http:
+      paths:
+      - path: /backend
+        pathType: Prefix
+        backend: 
+          service:
+            name: course-app-staging
+            port: 
+              number: 80

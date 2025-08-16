@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build:
+      context: .
+    container_name: course_app_frontend
+    ports:
+      - "80:80"
+    networks:
+      - course_app
+    volumes:
+      - .:/app
+networks:
+  course_app:

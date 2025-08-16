@@ -2,7 +2,7 @@ docker volume create course_app_backend_volume
 docker network create course_app_backend_network
 docker run --name postgres -v course_app_backend_volume:/var/lib/postgresql/data --network course_app_backend_network -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres 
 docker build -t ajayt8374/course_app_backend .
- docker run --network course_app_backend_network -p 3000:3000 -e DATABASE_URL="postgresql://postgres:mysecretpassword@postgres:5432/postgres" ajayt8374/course_app_backend
+docker run --network course_app_backend_network -p 3000:3000 -e DATABASE_URL="postgresql://postgres:mysecretpassword@postgres:5432/postgres" ajayt8374/course_app_backend
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

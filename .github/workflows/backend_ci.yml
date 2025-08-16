@@ -13,10 +13,17 @@ jobs:
               with:
                 username: ${{ secrets.DOCKER_USERNAME }}
                 password: ${{ secrets.DOCKER_TOKEN }}
-            - name: Build and Push Docker Image
+            - name: Build and Push Backend Docker Image
               uses: docker/build-push-action@v4
               with:
                 context: ./Backend
                 file: ./Backend/Dockerfile
                 push: true
                 tags: ajayt8374/course_app_backend:${{ github.sha }}
+            - name: Build and Push Frontend Docker Image
+              uses: docker/build-push-action@v4
+              with:
+                context:  ./Frontend
+                file: ./Frontend/Dockerfile
+                push: true
+                tags: ajayt8374/course_app_frontend:${{ github.sha }}
